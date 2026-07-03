@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -z "$*" ]; then
+    notify-send "Desktop Rename" "Please provide a name!"
+    exit 1
+fi
+
+NEW_NAME="$*"
+
+# 1. Get the UUID of the currently active desktop
+CURRENT_ID=$(qdbus6 org.kde.KWin /VirtualDesktopManager org.kde.KWin.VirtualDesktopManager.current)
+
+# 2. Tell KWin to safely rename the desktop internally (This instantly updates settings + OSD + config)
+qdbus6 org.kde.KWin /VirtualDesktopManager org.kde.KWin.VirtualDesktopManager.setDesktopName "$CURRENT_ID" "$NEW_NAME"
+
+# 3. Show a quick system pop-up confirming the change
+notify-send -t 1500 "Desktop Renamed" "Current desktop is now: $NEW_NAME"

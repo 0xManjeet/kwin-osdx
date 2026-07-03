@@ -38,7 +38,7 @@ Window {
 
     Timer {
         id: hideTimer
-        interval: 800
+        interval: 400
         repeat: false
         onTriggered: osdWindow.visible = false
     }
