@@ -1,0 +1,13 @@
+{
+  "KPackageStructure": "KWin/Script",
+  "KPlugin": {
+    "Name": "KDE SD OSD",
+    "Description": "Center Top Desktop Name OSD",
+    "Icon": "preferences-system-windows",
+    "Id": "kde-sd-osdx",
+    "Version": "2.0",
+    "License": "GPLv3"
+  },
+  "X-Plasma-API": "declarativescript",
+  "X-Plasma-MainScript": "ui/main.qml"
+}
